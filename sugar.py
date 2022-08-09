@@ -806,10 +806,12 @@ class sugar_library():
 
         for pka_set in pKa_list:
             self.check_pka_set(pka_set=pka_set)
-            for pka_key in pka_set: 
-                if pka_key in self.pka_set.keys():
+            for pka_key in pka_set:
 
-                    print("WARNING overwritting stored pKa value for ", pka_key)
+                if pka_set:
+                    if pka_key in self.pka_set.keys():
+
+                        print("WARNING overwritting stored pKa value for ", pka_key)
 
                 self.pka_set[pka_key]=pka_set[pka_key]
                 if pka_key in self.stored_sugar_objects['particle'].keys():
